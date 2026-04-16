@@ -1,0 +1,3165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduCraft — Shape Your Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <style>
+    :root {
+      --teal: #87B6BC;
+      --mint: #BED4CB;
+      --yellow: #E88D67;
+      --red: #B35656;
+      --dark: #2f2f2f;
+      --light: #f9f9f6;
+      --font-display: 'Poppins';
+      --font-heading: 'Poppins';
+      --font-body: 'Poppins';
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    section {
+      scroll-margin-top: 100px;
+      /* adjust based on your navbar height */
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--mint);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--teal);
+      border-radius: 3px;
+    }
+
+    /* ─── DEFAULT NAV ─── */
+    #mainNav {
+      background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+      /* transparent glass */
+
+
+      padding: 0.2rem 0;
+      transition: all 0.4s ease;
+      position: fixed;
+      width: 98%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 25px;
+      top: 15px;
+      z-index: 1000;
+      /* optional: subtle border + shadow for premium look */
+
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* ─── SCROLLED NAV ─── */
+    #mainNav.scrolled {
+      padding: 0.5rem 0;
+      top: 0;
+      width: 100%;
+      border-radius: 0;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .logo-box {
+      width: 42px;
+      height: 42px;
+      background: var(--yellow);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--dark);
+      letter-spacing: -1px;
+      box-shadow: 3px 3px 0 var(--red);
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(0, 0, 0, 0.8) !important;
+      font-weight: 900;
+      font-size: .88rem;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: .8rem 1.1rem !important;
+      position: relative;
+      transition: color .2s;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: .9rem;
+      right: .9rem;
+      height: 2px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transition: transform .25s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: var(--yellow) !important;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .btn-nav {
+      background: var(--yellow);
+      color: var(--dark) !important;
+      border-radius: 50px;
+      padding: .45rem 1.4rem !important;
+      font-weight: 600;
+      font-size: .85rem;
+      letter-spacing: .3px;
+      transition: all .25s !important;
+    }
+
+    .btn-nav:hover {
+      background: var(--red) !important;
+      color: #fff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(179, 86, 86, .35) !important;
+    }
+
+  
+
+    @media (max-width: 768px) {
+
+      .logo-box {
+        width: 34px;
+        height: 34px;
+        font-size: 1.1rem;
+      }
+
+      .brand-name {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* ─── MOBILE NAV FIX ─── */
+    @media (max-width: 991px) {
+
+      #mainNav {
+        width: 91%;
+        padding: 0.4rem 0;
+      }
+
+      .navbar-collapse {
+        background: #fff;
+        margin-top: 10px;
+        border-radius: 15px;
+        padding: 15px 10px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .navbar-nav {
+        align-items: flex-start !important;
+        width: 100%;
+      }
+
+      .navbar-nav .nav-link {
+        width: 100%;
+        padding: 12px 15px !important;
+        font-size: 0.95rem;
+      }
+
+      .navbar-nav .nav-link::after {
+        display: none;
+      }
+
+      .btn-nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+     
+    }
+.navbar-toggler-icon {
+  background-image: none !important;
+}
+   
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: url('Media/16_IMG_9551_1.jpg.jpeg') center/cover no-repeat;
+      overflow: hidden;
+      margin: 10px 10px 0px 10px;
+      border-radius: 30px 30px 0 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.215) 0%, rgba(0, 0, 0, 0.802) 100%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* center horizontally */
+      justify-content: center;
+      /* center vertically */
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--dark);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 4vw, 4rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      animation: fadeUp .7s .1s ease both;
+    }
+
+    .hero-title span {
+      color: var(--yellow);
+      font-style: italic;
+      font-weight: 900;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
+       .hero-content {
+        padding: 2rem;
+       }
+
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgb(255, 255, 255);
+      max-width: 720px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      animation: fadeUp .7s .2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp .7s .3s ease both;
+    }
+    @media (max-width: 768px) {
+  .hero-btns {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+    .btn-primary-c {
+      background: var(--yellow);
+      color: var(--dark);
+      border: none;
+      padding: .85rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .3px;
+      transition: all .3s;
+      box-shadow: 0 8px 30px rgba(246, 240, 159, .3);
+    }
+
+    .btn-primary-c:hover {
+      background: var(--red);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(179, 86, 86, .4);
+    }
+
+    .btn-outline-c {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, .4);
+      padding: .85rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: all .3s;
+    }
+
+    .btn-outline-c:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: flex;
+      padding: 30px;
+      gap: 8.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      animation: fadeUp .7s .4s ease both;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      color: var(--yellow);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: .2rem;
+    }
+
+    .hero-img-col {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      position: absolute;
+      background: var(--yellow);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .3);
+    }
+
+    .hero-badge.b1 {
+      top: 15%;
+      right: 0;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-badge.b2 {
+      bottom: 20%;
+      left: -10px;
+      animation: float 3s ease-in-out infinite .8s;
+    }
+
+    .badge-icon {
+      font-size: 1.4rem;
+      margin-bottom: .2rem;
+    }
+
+    .badge-val {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    .badge-txt {
+      font-size: .7rem;
+      color: rgba(26, 26, 26, .65);
+      font-weight: 500;
+    }
+
+    .hero-img-wrap {
+      width: 420px;
+      max-width: 100%;
+      height: 500px;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, .15);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .4);
+      animation: fadeUp .8s .2s ease both;
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section {
+      padding: 3rem 0;
+    }
+
+    .sec-tag {
+      display: inline-block;
+      background: var(--mint);
+      color: var(--dark);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .sec-title span {
+      color: var(--red);
+    }
+
+    .sec-sub {
+      font-size: 1rem;
+      color: #000000;
+      /* max-width: 600px; */
+      line-height: 1.5;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--yellow);
+      border-radius: 2px;
+      margin: 1rem 0 2rem;
+    }
+
+    /* ─── ABOUT / CONTACT ─── */
+    #about {
+      background: #fff;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-inner {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+    }
+
+    .about-img-inner img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .about-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: var(--yellow);
+      border-radius: 20px;
+      z-index: -1;
+    }
+
+    .about-accent2 {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 80px;
+      height: 80px;
+      background: var(--mint);
+      border-radius: 16px;
+      z-index: -1;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .af-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+
+    .af-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: var(--mint);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--teal);
+    }
+
+    /* Contact Form */
+    .contact-form-wrap {
+      background: rgb(148, 145, 145);
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, .2);
+    }
+
+    .contact-form-wrap .form-label {
+      color: rgb(0, 0, 0);
+      font-size: .85rem;
+      font-weight: 500;
+      margin-bottom: .4rem;
+    }
+
+    .contact-form-wrap .form-control,
+    .contact-form-wrap .form-select {
+      background: rgb(222, 222, 222);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: #2a2a2a !important;
+      border-radius: 12px;
+      padding: .75rem 1rem;
+      font-size: .9rem;
+      transition: all .25s;
+    }
+
+    .contact-form-wrap .form-control:focus,
+    .contact-form-wrap .form-select:focus {
+      background: rgba(255, 255, 255, 0.861);
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(135, 182, 188, .2);
+      color: #2a2a2a !important;
+    }
+
+    .contact-form-wrap .form-control::placeholder {
+      color: #565656 !important;
+    }
+
+    .contact-form-wrap .form-select option {
+      background: white;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--yellow), #e8d850);
+      color: var(--dark);
+      border: none;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: .95rem;
+      width: 100%;
+      transition: all .3s;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(135deg, var(--red), #c96060);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ─── COURSES ─── */
+    #courses {
+      background: var(--light);
+    }
+
+    .course-card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, .07);
+      transition: all .35s ease;
+      height: 100%;
+    }
+
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .14);
+    }
+
+    .course-card-img {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .course-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .course-card:hover .course-card-img img {
+      transform: scale(1.08);
+    }
+
+    .course-cat {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--yellow);
+      color: var(--dark);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 50px;
+    }
+
+    .course-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .course-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+      line-height: 1.3;
+    }
+
+    .course-desc {
+      font-size: .875rem;
+      color: #666;
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .course-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-top: 1rem;
+      padding: .35rem .85rem;
+      background: rgba(135, 182, 188, .12);
+      border-radius: 50px;
+    }
+
+    .btn-apply {
+      display: block;
+      text-align: center;
+      background: var(--dark);
+      color: var(--yellow);
+      border: none;
+      padding: .75rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+      margin-top: 1.2rem;
+      transition: all .25s;
+      letter-spacing: .3px;
+    }
+
+    .btn-apply:hover {
+      background: var(--red);
+      color: #fff;
+    }
+
+    /* ─── PLACEMENT STEPS ─── */
+    #placement {
+      background: var(--dark);
+      overflow: hidden;
+      position: relative;
+    }
+
+    #placement::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(135, 182, 188, .15) 0%, transparent 70%);
+    }
+
+    .step-connector {
+      display: flex;
+      align-items: center;
+      margin: 0 -15px;
+    }
+
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--teal), var(--mint));
+      opacity: .4;
+    }
+
+    .step-box {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      transition: all .4s;
+      backdrop-filter: blur(10px);
+    }
+
+    .step-box:hover {
+      background: rgba(135, 182, 188, .12);
+      border-color: var(--teal);
+      transform: translateY(-8px);
+    }
+
+    .step-num {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      color: rgba(246, 240, 159, 0.144);
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      line-height: 1;
+    }
+
+    .step-icon-wrap {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--teal), var(--mint));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 10px 30px rgba(135, 182, 188, .3);
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--mint);
+      margin-bottom: .6rem;
+    }
+
+    .step-desc {
+      font-size: .875rem;
+      color: rgba(255, 255, 255, 0.709);
+      line-height: 1.7;
+    }
+
+    /* ─── RECRUITERS ─── */
+    #recruiters {
+      background: #fff;
+    }
+
+    .recruiter-carousel .carousel-item {
+      padding: 1rem;
+    }
+
+    .recruiter-card {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      margin: 0 .5rem;
+    }
+
+    .recruiter-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      background: var(--mint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--dark);
+    }
+
+    .recruiter-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: .3rem;
+    }
+
+    .recruiter-role {
+      font-size: .8rem;
+      color: #888;
+    }
+
+    .recruiter-pkg {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--red);
+      margin-top: .5rem;
+    }
+
+    .recruiter-pkg span {
+      font-size: .8rem;
+      font-family: var(--font-body);
+      color: #888;
+      font-weight: 400;
+    }
+
+    .recruiter-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .recruiter-pill {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: all .25s;
+    }
+
+    .recruiter-pill:hover {
+      background: var(--mint);
+      transform: translateY(-3px);
+    }
+
+    .recruiter-pill-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .8rem;
+      color: #fff;
+    }
+
+    /* ─── NOTE SECTION ─── */
+    #note {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--mint) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 0;
+    }
+
+    #note::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    #note::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .note-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .note-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: .8rem;
+    }
+
+    .note-text {
+      font-size: 1rem;
+      color: rgba(26, 26, 26, .7);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .btn-note {
+      background: var(--dark);
+      color: var(--yellow);
+      border: none;
+      padding: .9rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: .95rem;
+      transition: all .3s;
+      box-shadow: 0 10px 30px rgba(26, 26, 26, .25);
+    }
+
+    .btn-note:hover {
+      background: var(--red);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* ─── WHY SECTION ─── */
+    #why {
+      background: var(--light);
+    }
+
+    .why-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 2rem;
+      border: 2px solid transparent;
+      transition: all .35s;
+      height: 100%;
+    }
+
+    .why-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(135, 182, 188, .2);
+    }
+
+    .why-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .why-card:nth-child(1) .why-icon {
+      background: rgba(246, 240, 159, .4);
+      color: #b8a900;
+    }
+
+    .why-card:nth-child(2) .why-icon {
+      background: rgba(135, 182, 188, .3);
+      color: var(--teal);
+    }
+
+    .why-card:nth-child(3) .why-icon {
+      background: rgba(179, 86, 86, .15);
+      color: var(--red);
+    }
+
+    .why-card:nth-child(4) .why-icon {
+      background: rgba(190, 212, 203, .4);
+      color: #5a9e7f;
+    }
+
+    .why-card:nth-child(5) .why-icon {
+      background: rgba(246, 240, 159, .4);
+      color: #b8a900;
+    }
+
+    .why-card:nth-child(6) .why-icon {
+      background: rgba(135, 182, 188, .3);
+      color: var(--teal);
+    }
+
+    .why-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+    }
+
+    .why-desc {
+      font-size: .875rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ─── FAQ ─── */
+    #faq {
+      background: #fff;
+    }
+
+    .faq-wrap .accordion-item {
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 0 !important;
+      margin-bottom: 0;
+    }
+
+    .faq-wrap .accordion-button {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      background: transparent;
+      box-shadow: none;
+      padding: 1.25rem 0;
+    }
+
+    .faq-wrap .accordion-button:not(.collapsed) {
+      color: var(--red);
+      background: transparent;
+    }
+
+    .faq-wrap .accordion-button::after {
+      filter: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1v14M1 8h14' stroke='%23B35656' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+      width: 20px;
+      height: 20px;
+      transition: transform .3s;
+    }
+
+    .faq-wrap .accordion-button.collapsed::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1 8h14' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    .faq-wrap .accordion-button:not(.collapsed)::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-wrap .accordion-body {
+      font-size: .9rem;
+      color: #555;
+      line-height: 1.75;
+      padding: .5rem 0 1.25rem;
+    }
+
+    .faq-img-side {
+      position: relative;
+    }
+
+    .faq-img-side img {
+      border-radius: 24px;
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+    }
+
+    .faq-badge {
+      position: absolute;
+      background: var(--yellow);
+      border-radius: 16px;
+      padding: 1.2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+    }
+
+    .faq-badge.fb1 {
+      bottom: 30px;
+      left: -20px;
+    }
+
+    .faq-badge.fb2 {
+      top: 30px;
+      right: -10px;
+    }
+
+    /* ─── YOUTUBE CAROUSEL ─── */
+    #videos {
+      background: var(--dark);
+      overflow: hidden;
+    }
+
+    .yt-card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+
+    .yt-card:hover {
+      transform: scale(1.02);
+    }
+
+    .yt-thumb {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .yt-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.2rem;
+    }
+
+    .yt-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: all .25s;
+    }
+
+    .yt-card:hover .yt-play {
+      background: var(--yellow);
+      color: var(--dark);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .yt-title {
+      color: #fff;
+      font-weight: 600;
+      font-size: .9rem;
+      line-height: 1.4;
+    }
+
+    .yt-duration {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, .7);
+      color: #fff;
+      font-size: .72rem;
+      padding: .25rem .6rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    #videos .carousel-control-prev,
+    #videos .carousel-control-next {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, .1);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid rgba(255, 255, 255, .2);
+    }
+
+    #videos .carousel-control-prev {
+      left: -60px;
+    }
+
+    #videos .carousel-control-next {
+      right: -60px;
+    }
+
+    /* ─── CTA ─── */
+    #cta {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      background: url('Media/DJI_20250312103220_0169_D.JPG.jpeg') center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26, 26, 26, .92), rgba(179, 86, 86, .5));
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-title span {
+      color: var(--yellow);
+      font-style: italic;
+    }
+
+    .cta-sub {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, .7);
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-cta {
+      background: var(--yellow);
+      color: var(--dark);
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: .3px;
+      transition: all .3s;
+      box-shadow: 0 15px 40px rgba(246, 240, 159, .3);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-cta:hover {
+      background: #fff;
+      color: var(--dark);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(255, 255, 255, .25);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #ecf5f6;
+      color: rgb(0, 0, 0);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: 3px;
+    }
+
+    .footer-links a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      font-size: .85rem;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--yellow);
+    }
+
+    .footer-divider {
+      border-color: rgba(255, 255, 255, .08);
+    }
+
+    .footer-logo {
+      display: inline-block;
+    }
+
+    .footer-logo img {
+      width: 450px;
+      /* desktop size */
+      height: auto;
+      object-fit: contain;
+      transition: all 0.3s ease;
+    }
+
+    /* hover effect */
+    .footer-logo img:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .footer-logo img {
+        width: 290px;
+      }
+    }
+
+
+    /* ─── REVEAL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:991px) {
+      .hero-img-wrap {
+        width: 320px;
+        height: 380px;
+      }
+
+      .step-connector {
+        display: none;
+      }
+
+      #videos .carousel-control-prev {
+        left: 0;
+      }
+
+      #videos .carousel-control-next {
+        right: 0;
+      }
+    }
+
+    @media(max-width:767px) {
+      section {
+        padding: 4rem 0;
+      }
+
+      .hero-img-col {
+        display: none;
+      }
+
+      .about-features {
+        grid-template-columns: 1fr;
+      }
+
+      .about-accent,
+      .about-accent2 {
+        display: none;
+      }
+
+      .faq-img-side {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- ─── NAVBAR ─── -->
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="Media/SVYASA -Logo.png" alt="">
+      </a>
+      <style>
+        .navbar-brand img {
+          height: 69px;
+          width: auto;
+          object-fit: contain;
+        }
+
+        @media (max-width: 576px) {
+          .navbar-brand img {
+            height: 45px;
+          }
+        }
+      </style>
+
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<style>
+  /* REMOVE DEFAULT */
+.navbar-toggler {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* CUSTOM TOGGLER */
+.custom-toggler {
+  width: 42px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* LINES */
+.custom-toggler span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+/* ANIMATION → OPEN STATE */
+.custom-toggler.active span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.custom-toggler.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-toggler.active span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* SUBTLE HOVER */
+.custom-toggler:hover span {
+  background: var(--yellow);
+}
+</style>
+<script>
+const toggler = document.querySelector(".custom-toggler");
+
+toggler.addEventListener("click", function () {
+  this.classList.toggle("active");
+});
+</script>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">Why S-VYASA</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+          <!-- <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="#contact">Apply Now</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12 hero-content">
+          <div class="hero-tag">🎓 #1 Ranked Institute 2024</div>
+          <h1 class="hero-title .text-shadow-pop-bottom ">Redefine Computer Education with a Future-Ready Approach at
+            <span>S-VYASA,</span> School of Advanced Studies
+          </h1>
+          <p class="hero-sub">Explore industry-focused BCA specializations designed for the digital era</p>
+          <div class="hero-btns">
+            <a href="#courses" class="btn-primary-c">Download Brochure </a>
+            <a href="#about" class="btn-outline-c">Apply Now</a>
+          </div>
+          <!-- <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">50K+</div>
+              <div class="stat-label">Alumni</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">98%</div>
+              <div class="stat-label">Placement</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">200+</div>
+              <div class="stat-label">Recruiters</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">₹18L</div>
+              <div class="stat-label">Avg Package</div>
+            </div>
+          </div> -->
+        </div>
+        <!-- <div class="col-lg-6 hero-img-col mt-4 mt-lg-0">
+          <div class="hero-badge b1">
+            <div class="badge-icon">🏆</div>
+            <div class="badge-val">Top 10</div>
+            <div class="badge-txt">Best Institute</div>
+          </div>
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80" alt="Students" />
+          </div>
+          <div class="hero-badge b2">
+            <div class="badge-icon">⭐</div>
+            <div class="badge-val">4.9/5</div>
+            <div class="badge-txt">Student Rating</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+  </section>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+
+      <!-- duplicate for seamless loop -->
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+      <span>Admissions Open 2026-2027</span>
+      <span>*</span>
+      <span>Admissions Open 2026-2027</span>
+    </div>
+  </div>
+  <style>
+    .ticker {
+      width: 100%;
+
+      overflow: hidden;
+      background: var(--mint);
+      /* change if needed */
+      color: #161616;
+      white-space: nowrap;
+
+    }
+
+    .ticker {
+      max-width: calc(100% - 20px);
+      margin: 0 auto;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      padding: 12px 0;
+
+      animation: scroll 20s linear infinite;
+    }
+
+    .ticker span {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+
+
+
+
+  <style>
+    /* SECTION */
+    .trust-strip {
+      padding: 20px 0;
+    }
+
+    /* ITEM */
+    .trust-item {
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    /* LOGO */
+    .trust-item img {
+      height: 110px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      opacity: 1;
+      transition: all 0.35s ease;
+    }
+
+    /* TEXT */
+    .trust-item p {
+      font-size: 1.1rem;
+      color: #444;
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    /* HOVER (AWWARDS STYLE) */
+    .trust-item:hover img {
+      opacity: 1;
+
+      transform: translateY(-4px);
+    }
+
+    .trust-item:hover p {
+      color: #000;
+    }
+
+    /* DIVIDER LINE */
+    .trust-strip {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .trust-item img {
+        height: 85px;
+      }
+
+      .trust-item p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+
+  <section class="trust-strip">
+    <div class="container">
+      <div class="row align-items-center text-center g-4">
+
+        <!-- AICTE -->
+        <div class="col-md-4 col-12">
+          <div class="trust-item">
+            <img src="randking-media/AICTE.png" alt="AICTE">
+            <p>Approved by AICTE</p>
+          </div>
+        </div>
+
+        <!-- KSURF -->
+        <div class="col-md-4 col-12">
+          <div class="trust-item">
+            <img src="randking-media/ksurf.jpg" alt="KSURF">
+            <p>4 Star Rating by KSURF</p>
+          </div>
+        </div>
+
+        <!-- NAAC -->
+        <div class="col-md-4 col-12">
+          <div class="trust-item">
+            <img src="randking-media/NAAC A+.png" alt="NAAC">
+            <p>Accredited ‘A+’ by NAAC</p>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ─── ABOUT + CONTACT ─── -->
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <div class="col-lg-7 ">
+          <div class="row gy-4">
+            <div class="col-12 reveal">
+              <span class="sec-tag">About Us</span>
+              <h2 class="sec-title">S-VYASA University (Deemed-to-be University), School of
+                <span> Advanced Studies</span>, Bangalore
+              </h2>
+              <div class="divider"></div>
+              <p class="sec-sub">In 2024, S-VYASA University, School of Advanced Studies, Sattva Global City, Bangalore,
+                was established as part of the S-VYASA Society. The university was founded by Padma Shri awardee Dr. H.
+                R. Nagendra with a vision of offering futuristic education by integrating the efficiency of modern
+                technology with traditional teaching methods. It offers a range of programmes across disciplines such as
+                Engineering, Computer Applications, Business & Management, and Allied Health, catering to students at
+                both undergraduate and postgraduate levels.
+                <br><br>
+                The core objective of S-VYASA University Sattva Global City Campus is to equip students with the
+                knowledge and skills required to excel in their chosen fields by integrating academic learning with
+                real-world applications. The university strives to drive positive change and shape the future of society
+                by fostering curiosity, promoting research excellence, and encouraging value-based and industry-oriented
+                innovation across diverse domains.
+
+              </p>
+              <!-- <div class="about-features mt-3">
+                <div class="af-item">
+                  <div class="af-icon"><i class="bi bi-patch-check-fill"></i></div>
+                  <div><strong>NAAC A+ Accredited</strong><br /><small class="text-muted">Nationally recognized
+                      excellence</small></div>
+                </div>
+                <div class="af-item">
+                  <div class="af-icon"><i class="bi bi-people-fill"></i></div>
+                  <div><strong>Expert Faculty</strong><br /><small class="text-muted">200+ industry
+                      professionals</small></div>
+                </div>
+                <div class="af-item">
+                  <div class="af-icon"><i class="bi bi-laptop"></i></div>
+                  <div><strong>Live Projects</strong><br /><small class="text-muted">Real-world exposure</small></div>
+                </div>
+                <div class="af-item">
+                  <div class="af-icon"><i class="bi bi-award-fill"></i></div>
+                  <div><strong>Certifications</strong><br /><small class="text-muted">Industry-recognized certs</small>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-5 reveal-left">
+          <div class="col-12 reveal" id="contact">
+            <div class="contact-form-wrap">
+              <h4 class="text-white mb-4" style="font-family:var(--font-display);font-weight:700;">Enter Your Details to
+                Get Started
+              </h4>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" placeholder="Name" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" placeholder="Ph No" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control" placeholder="Email" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Interested Course</label>
+                  <select class="form-select">
+                    <option value="">Select Course</option>
+                    <option>BCA Cybersecurity, Ethical Hacking & Digital Forensics</option>
+                    <option>BCA Artificial Intelligence, Cloud Computing & DevOps</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Message (optional)</label>
+                  <textarea class="form-control" rows="3" placeholder="Tell us about your goals..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn-submit">Submit <i class="bi bi-arrow-right ms-1"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COURSES ─── -->
+  <section id="courses">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="sec-tag">Our Programs</span>
+        <h2 class="sec-title"> <span>Course</span> Offered</h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto">IS-VYASA Deemed to be University Sattva Global City Campus offers in-depth BCA
+          programmes that inculcates students with the requisite knowledge to be future pioneers in the fast-paced
+          world. This is made possible as these courses aim to prepare students for real-world challenges by helping
+          them develop theoretical knowledge and practical skills through an industry-focused curriculum.</p>
+      </div>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-lg-6 col-md-6 reveal" style="transition-delay:.05s">
+          <div class="course-card d-flex flex-column">
+            <div class="course-card-img">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80" alt="CS" />
+              <span class="course-cat">Technology</span>
+            </div>
+            <div class="course-card-body">
+              <div class="course-title">BCA Cybersecurity, Ethical Hacking & Digital Forensics</div>
+              <p class="course-desc">This three-year undergraduate program is designed to build a strong foundation in
+                computer applications while specialising in cybersecurity and digital investigation.Students gain
+                hands-on exposure to ethical hacking techniques, network security, cryptography, cyber laws, and digital
+                forensics, enabling them to analyse cyber incidents and secure information systems. The program blends
+                theoretical knowledge with practical training through labs, simulations, and real-world case studies.
+              </p>
+              <div class="course-duration"><i class="bi bi-clock-fill"></i> 3 Years</div>
+              <a href="#contact" class="btn-apply">Apply Now →</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-lg-6 col-md-6 reveal" style="transition-delay:.1s">
+          <div class="course-card d-flex flex-column">
+            <div class="course-card-img">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Data Science" />
+              <span class="course-cat">Technology</span>
+            </div>
+            <div class="course-card-body">
+              <div class="course-title">BCA Artificial Intelligence, Cloud Computing & DevOps</div>
+              <p class="course-desc">This three-year undergraduate degree goes beyond the fundamentals of coding and
+                computer applications, offering a strong foundation in computer science along with specialised training
+                in Artificial Intelligence, Cloud Computing, and DevOps. It equips students with skills in machine
+                learning, cloud platforms, automation, and continuous integration and deployment (CI/CD), enabling them
+                to build, manage, and scale modern applications.</p>
+              <div class="course-duration"><i class="bi bi-clock-fill"></i> 3 Years</div>
+              <a href="#contact" class="btn-apply">Apply Now →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PLACEMENT STEPS ─── -->
+  <section id="placement">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="sec-tag" style="background:rgba(246,240,159,.2);color:var(--yellow);">Placement Process</span>
+        <h2 class="sec-title" style="color:#fff;"><span>Placement </span>Cell</h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto" style="color:rgb(255, 255, 255);">S-VYASA University’s training and placement cell
+          works closely with leading companies in the field of technology to help students gain real-world experience,
+          develop essential workplace skills, and build a strong professional portfolio even before graduation. These
+          opportunities not only support academic requirements but also prepare students to become career-focused and
+          industry-ready professionals.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 reveal" style="transition-delay:.05s">
+          <div class="step-box h-100">
+            <span class="step-num">01</span>
+            <div class="step-icon-wrap"><i class="bi bi-person-badge"></i></div>
+            <h5 class="step-title">Practical Exposure through Internships
+            </h5>
+            <p class="step-desc">BCA students gain hands-on experience through internships, lab work, and real-world
+              projects that help bridge the gap between theoretical learning and industry application.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal" style="transition-delay:.1s">
+          <div class="step-box h-100">
+            <span class="step-num">02</span>
+            <div class="step-icon-wrap"><i class="bi bi-mortarboard"></i></div>
+            <h5 class="step-title">Soft Skills and Resume-Building Sessions</h5>
+            <p class="step-desc">The BCA program includes dedicated training sessions focused on communication,
+              teamwork, and professional development, helping students build strong resumes and prepare for interviews.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal" style="transition-delay:.15s">
+          <div class="step-box h-100">
+            <span class="step-num">03</span>
+            <div class="step-icon-wrap"><i class="bi bi-building"></i></div>
+            <h5 class="step-title">Top-tier Industry Collaborations & MOUs</h5>
+            <p class="step-desc">The BCA curriculum is supported by collaborations with leading organisations and
+              industry bodies, providing students with exposure to current technologies, expert sessions, and
+              collaborative learning opportunities.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal" style="transition-delay:.2s">
+          <div class="step-box h-100">
+            <span class="step-num">04</span>
+            <div class="step-icon-wrap"><i class="bi bi-trophy"></i></div>
+            <h5 class="step-title">Career-Focused Training Programmes
+            </h5>
+            <p class="step-desc">BCA specialisations are delivered with a career-oriented approach, guided by
+              experienced faculty and industry professionals to ensure students are well-prepared for evolving job
+              roles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section id="recruiters">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="sec-tag">Hiring Partners</span>
+        <h2 class="sec-title">Top <span>Recruiters</span></h2>
+        <div class="divider mx-auto"></div>
+        <p class="sec-sub mx-auto">Our alumni work at the world's most innovative companies.</p>
+      </div>
+     
+      <div id="recruiterCarousel" class="carousel slide mb-5 reveal" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-3 px-2">
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(246,240,159,.3);color:var(--dark);">G</div>
+                  <div class="recruiter-name">Google</div>
+                  <div class="recruiter-role">Software Engineer</div>
+                  <div class="recruiter-pkg">₹42L <span>/yr</span></div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(135,182,188,.3);color:var(--dark);">M</div>
+                  <div class="recruiter-name">Microsoft</div>
+                  <div class="recruiter-role">Product Manager</div>
+                  <div class="recruiter-pkg">₹38L <span>/yr</span></div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(179,86,86,.15);color:var(--red);">A</div>
+                  <div class="recruiter-name">Amazon</div>
+                  <div class="recruiter-role">Data Scientist</div>
+                  <div class="recruiter-pkg">₹35L <span>/yr</span></div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(190,212,203,.4);color:#5a9e7f;">F</div>
+                  <div class="recruiter-name">Meta</div>
+                  <div class="recruiter-role">ML Engineer</div>
+                  <div class="recruiter-pkg">₹45L <span>/yr</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-3 px-2">
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(246,240,159,.3);">I</div>
+                  <div class="recruiter-name">Infosys</div>
+                  <div class="recruiter-role">Tech Lead</div>
+                  <div class="recruiter-pkg">₹22L <span>/yr</span></div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(135,182,188,.3);">W</div>
+                  <div class="recruiter-name">Wipro</div>
+                  <div class="recruiter-role">Analyst</div>
+                  <div class="recruiter-pkg">₹18L <span>/yr</span></div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(179,86,86,.15);color:var(--red);">T</div>
+                  <div class="recruiter-name">TCS</div>
+                  <div class="recruiter-role">Dev Engineer</div>
+                  <div class="recruiter-pkg">₹16L <span>/yr</span></div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="recruiter-card">
+                  <div class="recruiter-logo" style="background:rgba(190,212,203,.4);">S</div>
+                  <div class="recruiter-name">Swiggy</div>
+                  <div class="recruiter-role">Backend Eng</div>
+                  <div class="recruiter-pkg">₹28L <span>/yr</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#recruiterCarousel" data-bs-slide="prev">
+          <i class="bi bi-chevron-left" style="color:var(--dark);font-size:1.2rem;"></i>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#recruiterCarousel" data-bs-slide="next">
+          <i class="bi bi-chevron-right" style="color:var(--dark);font-size:1.2rem;"></i>
+        </button>
+      </div>
+  
+      <div class="recruiter-grid reveal">
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo">G</div>Google
+        </div>
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo" style="background:var(--red);">A</div>Amazon
+        </div>
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo" style="background:#4a6fa5;">M</div>Microsoft
+        </div>
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo" style="background:#2d8a4e;">F</div>Flipkart
+        </div>
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo" style="background:#c17020;">Z</div>Zomato
+        </div>
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo" style="background:#7a4aab;">P</div>Paytm
+        </div>
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo" style="background:#1a7a6e;">S</div>Swiggy
+        </div>
+        <div class="recruiter-pill">
+          <div class="recruiter-pill-logo" style="background:#b35656;">O</div>ONGC
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <style>
+    .recruiters-section {
+      padding: 60px 20px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-description {
+      font-size: 1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Half Circle Container */
+    .half-circle-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    /* Each Row */
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .logo-row:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .logo-row:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .logo-row:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .logo-row:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .logo-row:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    /* Logo Circle */
+    .logo-circle {
+      width: 100px;
+      height: 100px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 10px #00000010;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: 1px solid #f0f0f0;
+    }
+
+    .logo-circle:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      border-color: #e0e0e0;
+      z-index: 10;
+    }
+
+    .logo-circle img {
+      max-width: 100%;
+      max-height: 60px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+
+      transition: all 0.3s ease;
+    }
+
+    .logo-circle:hover img {
+      filter: grayscale(0%) opacity(1);
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .logo-circle {
+        width: 85px;
+        height: 85px;
+      }
+
+      .logo-circle img {
+        max-height: 42px;
+      }
+
+      .logo-row {
+        gap: 25px;
+      }
+
+      .half-circle-container {
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .recruiters-section {
+        padding: 50px 15px 60px;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .logo-circle {
+        width: 75px;
+        height: 75px;
+      }
+
+      .logo-circle img {
+        max-height: 38px;
+      }
+
+      .logo-row {
+        gap: 20px;
+      }
+
+      .half-circle-container {
+        gap: 20px;
+      }
+
+      .section-header {
+        margin-bottom: 50px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .section-description {
+        font-size: 0.95rem;
+      }
+
+      .logo-circle {
+        width: 65px;
+        height: 65px;
+      }
+
+      .logo-circle img {
+        max-height: 32px;
+      }
+
+      .logo-row {
+        gap: 15px;
+      }
+
+      .half-circle-container {
+        gap: 15px;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .logo-circle {
+        width: 55px;
+        height: 55px;
+      }
+
+      .logo-circle img {
+        max-height: 48px;
+      }
+
+      .logo-row {
+        gap: 12px;
+      }
+
+      .half-circle-container {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+  .logo-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo-circle {
+    flex: 0 0 calc(33.33% - 12px); /* 3 per row */
+    max-width: calc(73.33% - 12px);
+  }
+}
+  </style>
+
+
+  <section class="recruiters-section">
+    <div class="text-center mb-5 reveal">
+      <span class="sec-tag" style="background:rgba(246,240,159,.2);color:var(--yellow);">Placement Process</span>
+      <h2 class="sec-title" style="color:#000000;">Top <span>Recruiters</span></h2>
+      <div class="divider mx-auto"></div>
+      <!-- <p class="sec-sub mx-auto" style="color:rgba(0, 0, 0, 0.55);">Our proven placement methodology that has helped
+          50,000+ students land top jobs.</p> -->
+    </div>
+    <!-- Half Circle Layout -->
+    <div class="half-circle-container">
+
+      <!-- Row 1: 5 logos -->
+      <div class="logo-row">
+        <div class="logo-circle">
+          <img src="placements/AIROH.svg" alt="Google">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Coca-Cola.svg" alt="Microsoft">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/OLA.svg" alt="Amazon">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Oracle.svg" alt="Google">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/OYO.svg" alt="Microsoft">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Paytm.svg" alt="Amazon">
+        </div>
+
+        <div class="logo-circle">
+          <img src="placements/RapidOps.svg" alt="Amazon">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/RBL Bank.svg" alt="Amazon">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Standard Chartered.svg" alt="Amazon">
+        </div>
+
+
+      </div>
+
+      <!-- Row 2: 4 logos -->
+      <div class="logo-row">
+        <div class="logo-circle">
+          <img src="placements/Peoples Group.svg" alt="Microsoft">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Pernod Ricard.svg" alt="Amazon">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Zomato.svg" alt="Google">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/PhonePe.svg" alt="Microsoft">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Progress.svg" alt="Amazon">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Proof.svg" alt="Amazon">
+        </div>
+
+        <div class="logo-circle">
+          <img src="placements/Swiggy.svg" alt="Amazon">
+        </div>
+        <div class="logo-circle">
+          <img src="placements/Western Digital.svg" alt="Amazon">
+        </div>
+      </div>
+
+      <!-- Row 3: 3 logos -->
+      <!-- <div class="logo-row">
+                <div class="logo-circle">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel">
+                </div>
+               
+            </div> -->
+
+      <!-- Row 4: 2 logos (you can add more companies) -->
+      <!-- <div class="logo-row">
+                <div class="logo-circle">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+                </div>
+                <div class="logo-circle">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Adobe">
+                </div>
+            </div> -->
+
+      <!-- Row 5: 1 logo -->
+      <!-- <div class="logo-row">
+                <div class="logo-circle">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Apple">
+                </div>
+            </div> -->
+
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ─── NOTE SECTION ─── -->
+  <section id="note" class="py-5">
+    <div class="container py-4">
+      <div class="note-content">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-10">
+            <h2 class="note-title">📌 Inspiring minds, shaping futures, and building leaders. Discover life at S-VYASA!
+              </u></h2>
+            <!-- <p class="note-text">Limited seats available for the 2024-25 batch. Over 2,000 students have already
+              registered. Don't miss your chance to secure a spot in our flagship programs with guaranteed placement
+              support.</p> -->
+          </div>
+          <div class="col-lg-2 text-lg-end">
+            <a href="#contact" class="btn-note">Learn More<i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY US ─── -->
+  <section id="why">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="sec-tag">Why Choose</span>
+        <h2 class="sec-title">What Sets S-VYASA <span>Apart</span></h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal" style="transition-delay:.05s">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+            <h5 class="why-title">Modern & Innovative Laboratories to Enable Practical Learning</h5>
+            <p class="why-desc">S–VYASA houses subject-specific laboratories that enable BCA aspirants to apply their
+              theoretical knowledge through practical applications.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal" style="transition-delay:.1s">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-people"></i></div>
+            <h5 class="why-title">Comprehensive Specialisations</h5>
+            <p class="why-desc">The BCA course is designed to introduce students to various specialisations, each
+              focusing on a specific area of study.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal" style="transition-delay:.15s">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-laptop-fill"></i></div>
+            <h5 class="why-title">Research-Driven and Project-Based Learning</h5>
+            <p class="why-desc">The curriculum encourages aspirants to deepen their knowledge about their preferred
+              specialisation through extensive research and projects.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal" style="transition-delay:.2s">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-building-check"></i></div>
+            <h5 class="why-title">Skilled Teaching Professionals</h5>
+            <p class="why-desc">The BCA course specialisations are taught by faculty members who are industry experts
+              with a wide range of teaching experience.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal" style="transition-delay:.25s">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-wallet2"></i></div>
+            <h5 class="why-title">Globally Recognised Certifications</h5>
+            <p class="why-desc">The BCA program is integrated with certifications in collaboration with various leading
+              companies to enhance the employability rate of the students.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal" style="transition-delay:.3s">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-globe2"></i></div>
+            <h5 class="why-title">Holistic Approach</h5>
+            <p class="why-desc">The university integrates yoga, wellness, and academic excellence into its learning
+              environment, ensuring a balanced approach to education.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <style>
+    .yt-testi {
+      background-color: var(--dark);
+    }
+
+    .placement {
+      background-color: rgb(230, 244, 255);
+      /* border-radius: 50px;
+            margin: 20px; */
+    }
+
+    .carousel-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .carousel-inner {
+      border-radius: 12px;
+    }
+
+    .carousel-item {
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .video-wrapper {
+      display: flex;
+      gap: 20px;
+      padding: 0 10px;
+    }
+
+    .video-card {
+      flex: 1;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: #000;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      display: block;
+    }
+
+    /* Custom navigation buttons */
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 40px;
+      height: 40px;
+      background: rgba(151, 151, 151, 0.6);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 1;
+    }
+
+    .carousel-control-prev {
+      left: -60px;
+    }
+
+    .carousel-control-next {
+      right: -60px;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Custom dots */
+    .carousel-indicators {
+      position: relative;
+      margin: 30px 0 0 0;
+      bottom: auto;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d1d5db;
+      border: none;
+      opacity: 1;
+      transition: all 0.3s;
+      margin: 0 5px;
+    }
+
+    .carousel-indicators .active {
+      background: #374151;
+      transform: scale(1.2);
+    }
+
+    /* Responsive - 2 videos on tablet */
+    @media (max-width: 991px) {
+      .video-wrapper {
+        gap: 15px;
+      }
+
+      .video-card:nth-child(3) {
+        display: none;
+      }
+
+      .carousel-control-prev {
+        left: -45px;
+      }
+
+      .carousel-control-next {
+        right: -45px;
+      }
+    }
+
+    /* Responsive - 1 video on mobile */
+    @media (max-width: 767px) {
+
+      .video-card:nth-child(2),
+      .video-card:nth-child(3) {
+        display: none;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 40px;
+        height: 40px;
+      }
+
+      .carousel-control-prev {
+        left: 10px;
+      }
+
+      .carousel-control-next {
+        right: 10px;
+      }
+    }
+@media (max-width: 767px) {
+
+  .video-wrapper {
+    justify-content: center;
+  }
+
+  .video-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+  </style>
+  <section class="yt-testi">
+    <div class="carousel-container my-5 py-4">
+      <div class="text-center mb-5 reveal">
+        <span class="sec-tag" style="background:rgba(246,240,159,.15);color:var(--yellow);">Student Stories</span>
+        <h2 class="sec-title" style="color:#ffffff;">Hear From Our <span>Alumni</span></h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div id="youtubeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="video-wrapper">
+              <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/ImIo9BWz10o?si=R4F9qvqoRqanlpAA" title="YouTube video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/pifrViw_Ms4?si=FzVyPDwqnBQIwNSV" title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/yzXssx8xoGs?si=q3v4wQa5AkcM1jEO" title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/5aUW_0wz018?si=0CeIfJgX4Z5N9TjI" title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#youtubeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#youtubeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button> -->
+
+        <!-- Dots -->
+        <!-- <div class="carousel-indicators">
+                <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="0" class="active"></button>
+               
+            </div> -->
+      </div>
+    </div>
+  </section>
+
+
+
+  <script>
+    // Enable infinite loop with wrap
+    const carousel = new bootstrap.Carousel(document.getElementById('youtubeCarousel'), {
+      interval: 3500,
+      wrap: true,
+      ride: 'carousel'
+    });
+
+    // Pause on hover
+    const carouselElement = document.getElementById('youtubeCarousel');
+    carouselElement.addEventListener('mouseenter', () => carousel.pause());
+    carouselElement.addEventListener('mouseleave', () => carousel.cycle());
+  </script>
+  <script>
+function setupMobileCarousel() {
+  const isMobile = window.innerWidth <= 767;
+  const carouselInner = document.querySelector("#youtubeCarousel .carousel-inner");
+  const videoCards = document.querySelectorAll(".video-card");
+
+  if (isMobile && carouselInner.children.length === 1) {
+    carouselInner.innerHTML = "";
+
+    videoCards.forEach((card, index) => {
+      const item = document.createElement("div");
+      item.classList.add("carousel-item");
+      if (index === 0) item.classList.add("active");
+
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("video-wrapper");
+
+      wrapper.appendChild(card.cloneNode(true));
+      item.appendChild(wrapper);
+      carouselInner.appendChild(item);
+    });
+  }
+}
+
+window.addEventListener("load", setupMobileCarousel);
+window.addEventListener("resize", setupMobileCarousel);
+</script>
+
+
+
+
+  <!-- ─── FAQ ─── -->
+  <section id="faq">
+    <div class="container">
+      <div class="row align-items-start gy-5">
+        <div class="col-lg-5 reveal-left">
+          <div class="faq-img-side">
+            <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&q=80" alt="FAQ" />
+          </div>
+        </div>
+        <div class="col-lg-7 reveal-right">
+          <span class="sec-tag">FAQ</span>
+          <h2 class="sec-title">Got <span>Questions?</span></h2>
+          <div class="divider"></div>
+          <div class="faq-wrap accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  What is S-VYASA Deemed to be University, Sattva Global City Campus, Bangalore?
+
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">S-VYASA University is a UGC-recognised deemed-to-be university located in
+                  Bangalore. The Sattva Global City Campus is known for its modern infrastructure, industry-oriented BCA
+                  programmes, and a unique approach that integrates technology education with holistic development.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq2">
+                  Is S-VYASA University a private or government institution?
+
+
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">S-VYASA Deemed to be University, Global Campus is a private deemed-to-be
+                  university recognised by the UGC. It is considered among the reputed private institutions in
+                  Bangalore, offering career-focused programmes with an emphasis on research, innovation, and industry
+                  relevance.
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq3">
+                  What BCA courses are offered at S-VYASA University?
+
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">BCA programmes are offered via two specializations - Cybersecurity, Ethical
+                  Hacking & Digital Forensics, and Artificial Intelligence, Cloud Computing & DevOps. Irrespective of
+                  the specialization, students develop theoretical knowledge and practical skills through an
+                  industry-focused curriculum
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq4">
+                  How does S-VYASA support students pursuing BCA specialisations in emerging technologies?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">S-VYASA Deemed to be University, Bangalore offers a structured learning
+                  environment for BCA students interested in emerging technologies. Through a blend of specialised
+                  coursework, hands-on labs, industry exposure, and project-based learning, students gain practical
+                  skills in areas like AI, cybersecurity, and cloud computing. This approach helps them stay aligned
+                  with evolving tech trends and prepares them for diverse roles in the digital ecosystem.</div>
+              </div>
+            </div>
+            <div class="accordion-item" style="border-bottom:none;">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq5">
+                  What facilities, scholarships, and placement support are available at S-VYASA University?
+                </button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">S-VYASA Deemed to be University, Sattva Global City Campus offers modern
+                  laboratories, technology-enabled classrooms, and a supportive academic environment. The university
+                  also provides scholarships based on merit, entrance exam performance, and specific categories. The
+                  university also offers strong placement support through internships, industry collaborations, and
+                  training programmes that help students build skills and prepare for professional careers.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- ─── YOUTUBE CAROUSEL ─── -->
+  <!-- <section id="videos" style="padding:6rem 0;">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="sec-tag" style="background:rgba(246,240,159,.15);color:var(--yellow);">Student Stories</span>
+        <h2 class="sec-title" style="color:#fff;">Hear From Our <span>Alumni</span></h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div id="ytCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner reveal">
+          <div class="carousel-item active">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="yt-card">
+                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+                    alt="Video 1" />
+                  <div class="yt-overlay">
+                    <div class="yt-title">How I Got Into Google — My EduCraft Journey</div>
+                  </div>
+                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
+                  <div class="yt-duration">12:34</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-none d-md-block">
+                <div class="yt-card">
+                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"
+                    alt="Video 2" />
+                  <div class="yt-overlay">
+                    <div class="yt-title">₹45 LPA at 22 — My Data Science Story</div>
+                  </div>
+                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
+                  <div class="yt-duration">08:21</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-none d-md-block">
+                <div class="yt-card">
+                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80"
+                    alt="Video 3" />
+                  <div class="yt-overlay">
+                    <div class="yt-title">From Tier 3 to Silicon Valley — Full Story</div>
+                  </div>
+                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
+                  <div class="yt-duration">15:07</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="yt-card">
+                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80"
+                    alt="Video 4" />
+                  <div class="yt-overlay">
+                    <div class="yt-title">Campus Life at EduCraft — A Day in My Life</div>
+                  </div>
+                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
+                  <div class="yt-duration">10:45</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-none d-md-block">
+                <div class="yt-card">
+                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
+                    alt="Video 5" />
+                  <div class="yt-overlay">
+                    <div class="yt-title">Top 5 Mistakes I Made During Placements</div>
+                  </div>
+                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
+                  <div class="yt-duration">07:58</div>
+                </div>
+              </div>
+              <div class="col-md-4 d-none d-md-block">
+                <div class="yt-card">
+                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
+                    alt="Video 6" />
+                  <div class="yt-overlay">
+                    <div class="yt-title">How EduCraft Helped Me Switch Careers</div>
+                  </div>
+                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
+                  <div class="yt-duration">09:12</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#ytCarousel" data-bs-slide="prev"
+          style="left:-60px;">
+          <i class="bi bi-chevron-left" style="color:#fff;font-size:1.2rem;"></i>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#ytCarousel" data-bs-slide="next"
+          style="right:-60px;">
+          <i class="bi bi-chevron-right" style="color:#fff;font-size:1.2rem;"></i>
+        </button>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ─── CTA ─── -->
+  <section id="cta">
+    <div class="cta-overlay"></div>
+    <div class="container cta-content">
+      <div class="reveal">
+        <h2 class="cta-title">Step into the World of Emerging Technologies with <span> BCA</span> at S-VYASA University
+        </h2>
+        <!-- <p class="cta-sub">Join 50,000+ students who chose EduCraft and never looked back. Seats are limited — take the
+          first step now.</p> -->
+        <a href="#contact" class="btn-cta">Apply Now <i class="bi bi-arrow-right ms-2"></i></a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row gy-4 mb-4">
+        <div class="col-lg-6">
+          <a class="footer-logo" href="#">
+            <img src="Media/SVYASA -Logo.png" alt="SVYASA Logo">
+          </a>
+          <style>
+
+          </style>
+          <!-- <div class="social-links mt-3 d-flex gap-2">
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div> -->
+        </div>
+
+        <div class="col-lg-6">
+          <div style="color:#000;font-weight:600;font-size:1.3rem;margin-bottom:1rem;">
+            Contact
+          </div>
+
+          <div class="d-flex flex-column gap-3" style="font-size:1.1rem;">
+
+            <!-- ADDRESS -->
+            <div class="d-flex align-items-start">
+              <i class="bi bi-geo-alt me-2 mt-1" style="color:var(--teal);"></i>
+              <span>
+                Sattva Global City, Mysore Road,
+                Rajarajeshwari Nagar,
+                Bengaluru, Karnataka - 560059, India
+              </span>
+            </div>
+
+            <!-- PHONE -->
+            <div class="d-flex align-items-start">
+              <i class="bi bi-telephone me-2 mt-1" style="color:var(--teal);"></i>
+              <span>
+                +91-9070907066 | +91-9070907099
+              </span>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="d-flex align-items-start">
+              <i class="bi bi-envelope me-2 mt-1" style="color:var(--teal);"></i>
+              <span>
+                info@svyasa.edu.in
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <script>
+
+    // ─── NAVBAR SCROLL
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 60); });
+
+    // ─── SCROLL REVEAL
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } }); }, { threshold: .12 });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => observer.observe(el));
+
+    // ─── COUNTER ANIMATION
+    function animateCounters() {
+      document.querySelectorAll('.stat-num').forEach(el => {
+        const target = parseFloat(el.textContent);
+        const suffix = el.textContent.replace(/[\d.]/g, '');
+        let start = 0; const dur = 1500; const step = 16;
+        const inc = target / (dur / step);
+        const timer = setInterval(() => {
+          start += inc;
+          if (start >= target) { start = target; clearInterval(timer); }
+          el.textContent = (Number.isInteger(target) ? Math.floor(start) : start.toFixed(1)) + suffix;
+        }, step);
+      });
+    }
+    let counted = false;
+    const heroObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting && !counted) { counted = true; animateCounters(); } }); });
+    document.querySelector('.hero-stats') && heroObs.observe(document.querySelector('.hero-stats'));
+
+    // ─── SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+
+    // ─── RECRUITER CAROUSEL DOTS STYLE
+    document.getElementById('recruiterCarousel').addEventListener('slid.bs.carousel', () => { });
+  </script>
+  <script>
+    // Add smooth hover effect
+    const logoCircles = document.querySelectorAll('.logo-circle');
+
+    logoCircles.forEach(circle => {
+      circle.addEventListener('mouseenter', function () {
+        this.style.zIndex = '10';
+      });
+
+      circle.addEventListener('mouseleave', function () {
+        this.style.zIndex = '1';
+      });
+    });
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.logo-row').forEach(row => {
+      observer.observe(row);
+    });
+  </script>
+</body>
+
+</html>
