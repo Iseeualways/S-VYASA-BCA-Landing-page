@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>S-VYASA BCA Landing page</title>
+  <title>EduCraft — Shape Your Future</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -171,7 +171,7 @@
       box-shadow: 0 8px 20px rgba(179, 86, 86, .35) !important;
     }
 
-  
+
 
     @media (max-width: 768px) {
 
@@ -223,12 +223,13 @@
         margin-top: 10px;
       }
 
-     
+
     }
-.navbar-toggler-icon {
-  background-image: none !important;
-}
-   
+
+    .navbar-toggler-icon {
+      background-image: none !important;
+    }
+
 
     /* ─── HERO ─── */
     #hero {
@@ -236,7 +237,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      background: url('Media/16_IMG_9551_1.jpg.jpeg') center/cover no-repeat;
+      background: url('Media/16_IMG_9551_1.webp') center/cover no-repeat;
       overflow: hidden;
       margin: 10px 10px 0px 10px;
       border-radius: 30px 30px 0 0;
@@ -304,9 +305,10 @@
         font-size: 2rem;
         line-height: 1.3;
       }
-       .hero-content {
+
+      .hero-content {
         padding: 2rem;
-       }
+      }
 
     }
 
@@ -325,12 +327,13 @@
       flex-wrap: wrap;
       animation: fadeUp .7s .3s ease both;
     }
+
     @media (max-width: 768px) {
-  .hero-btns {
-    justify-content: center;
-    text-align: center;
-  }
-}
+      .hero-btns {
+        justify-content: center;
+        text-align: center;
+      }
+    }
 
     .btn-primary-c {
       background: var(--yellow);
@@ -677,7 +680,7 @@
     }
 
     .course-card-img {
-      height: 200px;
+      height: 250px;
       overflow: hidden;
       position: relative;
     }
@@ -768,22 +771,25 @@
     }
 
     /* ─── PLACEMENT STEPS ─── */
+    /* ─── PLACEMENT SECTION ─── */
     #placement {
-      background: var(--dark);
+      background: #0b0b0c;
       overflow: hidden;
       position: relative;
     }
 
+    /* subtle ambient glow */
     #placement::before {
       content: '';
       position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(135, 182, 188, .15) 0%, transparent 70%);
+      top: -120px;
+      right: -120px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
     }
 
+    /* connector line */
     .step-connector {
       display: flex;
       align-items: center;
@@ -792,63 +798,86 @@
 
     .step-line {
       flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--teal), var(--mint));
-      opacity: .4;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
     }
 
+    /* step card */
     .step-box {
-      background: rgba(255, 255, 255, .05);
-      border: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, 0.04);
+      /* ↑ increased */
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 24px;
       padding: 2.5rem 2rem;
       text-align: center;
       position: relative;
-      transition: all .4s;
-      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(12px);
+
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
+    /* hover effect */
     .step-box:hover {
-      background: rgba(135, 182, 188, .12);
-      border-color: var(--teal);
-      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.08);
+      /* ↑ stronger */
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-10px);
+
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
     }
 
+    /* big number (ghost style) */
     .step-num {
       font-family: var(--font-heading);
       font-size: 5rem;
-      color: rgba(246, 240, 159, 0.144);
+      color: rgba(255, 255, 255, 0.04);
       position: absolute;
-      top: 2px;
-      right: 2px;
+      top: 5px;
+      right: 10px;
       line-height: 1;
     }
 
+    /* icon */
     .step-icon-wrap {
       width: 70px;
       height: 70px;
-      background: linear-gradient(135deg, var(--teal), var(--mint));
-      border-radius: 20px;
+      background: var(--red);
+      color: #000;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       margin: 0 auto 1.2rem;
-      box-shadow: 0 10px 30px rgba(135, 182, 188, .3);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
     }
 
+    /* icon hover */
+    .step-box:hover .step-icon-wrap {
+      transform: scale(1.05);
+    }
+
+    /* title */
     .step-title {
       font-family: var(--font-display);
       font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--mint);
-      margin-bottom: .6rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
     }
 
+    /* description */
     .step-desc {
-      font-size: .875rem;
-      color: rgba(255, 255, 255, 0.709);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
       line-height: 1.7;
+    }
+
+    /* OPTIONAL: subtle accent on hover */
+    .step-box:hover {
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     /* ─── RECRUITERS ─── */
@@ -1267,26 +1296,26 @@
       min-height: 420px;
       display: flex;
       align-items: center;
-      background: url('Media/DJI_20250312103220_0169_D.JPG.jpeg') center/cover no-repeat;
+      background: url('Media/DJI_20250312164412_0229_D_1.jpg.webp') center/cover no-repeat;
       overflow: hidden;
     }
 
     .cta-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(26, 26, 26, .92), rgba(179, 86, 86, .5));
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.775), rgba(71, 71, 71, 0.57));
     }
 
     .cta-content {
       position: relative;
       z-index: 2;
-      text-align: center;
+      text-align: start;
     }
 
     .cta-title {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 6vw, 3rem);
-      font-weight: 600;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 500;
       color: #fff;
       line-height: 1.05;
       margin-bottom: 1.5rem;
@@ -1295,6 +1324,7 @@
     .cta-title span {
       color: var(--yellow);
       font-style: italic;
+      font-weight: 800;
     }
 
     .cta-sub {
@@ -1307,16 +1337,16 @@
     }
 
     .btn-cta {
-      background: var(--yellow);
-      color: var(--dark);
-      border: none;
-      padding: 1rem 3rem;
+      background: rgba(255, 0, 0, 0);
+      border: 2px solid var(--yellow);
+      color: white;
+      padding: 1rem 2rem;
       border-radius: 50px;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 1.2rem;
       letter-spacing: .3px;
       transition: all .3s;
-      box-shadow: 0 15px 40px rgba(246, 240, 159, .3);
+      /* box-shadow: 0 15px 40px rgba(246, 240, 159, .3); */
       text-decoration: none;
       display: inline-block;
     }
@@ -1358,7 +1388,12 @@
     }
 
     .footer-logo {
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
     }
 
     .footer-logo img {
@@ -1487,64 +1522,64 @@
       </style>
 
       <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-<style>
-  /* REMOVE DEFAULT */
-.navbar-toggler {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <style>
+        /* REMOVE DEFAULT */
+        .navbar-toggler {
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
 
-/* CUSTOM TOGGLER */
-.custom-toggler {
-  width: 42px;
-  height: 24px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-}
+        /* CUSTOM TOGGLER */
+        .custom-toggler {
+          width: 42px;
+          height: 24px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          cursor: pointer;
+        }
 
-/* LINES */
-.custom-toggler span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: #000;
-  border-radius: 2px;
-  transition: all 0.35s ease;
-}
+        /* LINES */
+        .custom-toggler span {
+          display: block;
+          height: 2px;
+          width: 100%;
+          background: #000;
+          border-radius: 2px;
+          transition: all 0.35s ease;
+        }
 
-/* ANIMATION → OPEN STATE */
-.custom-toggler.active span:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
+        /* ANIMATION → OPEN STATE */
+        .custom-toggler.active span:nth-child(1) {
+          transform: translateY(11px) rotate(45deg);
+        }
 
-.custom-toggler.active span:nth-child(2) {
-  opacity: 0;
-}
+        .custom-toggler.active span:nth-child(2) {
+          opacity: 0;
+        }
 
-.custom-toggler.active span:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
-}
+        .custom-toggler.active span:nth-child(3) {
+          transform: translateY(-11px) rotate(-45deg);
+        }
 
-/* SUBTLE HOVER */
-.custom-toggler:hover span {
-  background: var(--yellow);
-}
-</style>
-<script>
-const toggler = document.querySelector(".custom-toggler");
+        /* SUBTLE HOVER */
+        .custom-toggler:hover span {
+          background: var(--yellow);
+        }
+      </style>
+      <script>
+        const toggler = document.querySelector(".custom-toggler");
 
-toggler.addEventListener("click", function () {
-  this.classList.toggle("active");
-});
-</script>
+        toggler.addEventListener("click", function () {
+          this.classList.toggle("active");
+        });
+      </script>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
           <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
@@ -1566,7 +1601,7 @@ toggler.addEventListener("click", function () {
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-12 hero-content">
-          <div class="hero-tag">🎓 #1 Ranked Institute 2024</div>
+          <!-- <div class="hero-tag">🎓 #1 Ranked Institute 2024</div> -->
           <h1 class="hero-title .text-shadow-pop-bottom ">Redefine Computer Education with a Future-Ready Approach at
             <span>S-VYASA,</span> School of Advanced Studies
           </h1>
@@ -1841,20 +1876,20 @@ toggler.addEventListener("click", function () {
                 Get Started
               </h4>
               <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label">Full Name</label>
+                <div class="col-md-12">
+
                   <input type="text" class="form-control" placeholder="Name" />
                 </div>
-                <div class="col-md-6">
-                  <label class="form-label">Phone Number</label>
-                  <input type="tel" class="form-control" placeholder="Ph No" />
+                <div class="col-md-12">
+
+                  <input type="tel" class="form-control" placeholder="Phone No" />
                 </div>
-                <div class="col-md-6">
-                  <label class="form-label">Email Address</label>
-                  <input type="email" class="form-control" placeholder="Email" />
+                <div class="col-md-12">
+
+                  <input type="email" class="form-control" placeholder="Email ID" />
                 </div>
-                <div class="col-md-6">
-                  <label class="form-label">Interested Course</label>
+                <div class="col-md-12">
+
                   <select class="form-select">
                     <option value="">Select Course</option>
                     <option>BCA Cybersecurity, Ethical Hacking & Digital Forensics</option>
@@ -1862,8 +1897,8 @@ toggler.addEventListener("click", function () {
                   </select>
                 </div>
                 <div class="col-12">
-                  <label class="form-label">Message (optional)</label>
-                  <textarea class="form-control" rows="3" placeholder="Tell us about your goals..."></textarea>
+
+                  <textarea class="form-control" rows="3" placeholder="Message (Optional)"></textarea>
                 </div>
                 <div class="col-12">
                   <button class="btn-submit">Submit <i class="bi bi-arrow-right ms-1"></i></button>
@@ -1888,12 +1923,12 @@ toggler.addEventListener("click", function () {
           world. This is made possible as these courses aim to prepare students for real-world challenges by helping
           them develop theoretical knowledge and practical skills through an industry-focused curriculum.</p>
       </div>
-      <div class="row g-4">
+      <div class="row g-5">
         <!-- Card 1 -->
         <div class="col-lg-6 col-md-6 reveal" style="transition-delay:.05s">
           <div class="course-card d-flex flex-column">
             <div class="course-card-img">
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80" alt="CS" />
+              <img src="Media/83380.jpg.jpeg" alt="CS" />
               <span class="course-cat">Technology</span>
             </div>
             <div class="course-card-body">
@@ -1913,7 +1948,7 @@ toggler.addEventListener("click", function () {
         <div class="col-lg-6 col-md-6 reveal" style="transition-delay:.1s">
           <div class="course-card d-flex flex-column">
             <div class="course-card-img">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Data Science" />
+              <img src="Media/693396.jpg.jpeg" alt="Data Science" />
               <span class="course-cat">Technology</span>
             </div>
             <div class="course-card-body">
@@ -1931,6 +1966,7 @@ toggler.addEventListener("click", function () {
       </div>
     </div>
   </section>
+
 
   <!-- ─── PLACEMENT STEPS ─── -->
   <section id="placement">
@@ -2352,16 +2388,17 @@ toggler.addEventListener("click", function () {
 
     @media (max-width: 768px) {
 
-  .logo-row {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+      .logo-row {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-  .logo-circle {
-    flex: 0 0 calc(33.33% - 12px); /* 3 per row */
-    max-width: calc(73.33% - 12px);
-  }
-}
+      .logo-circle {
+        flex: 0 0 calc(33.33% - 12px);
+        /* 3 per row */
+        max-width: calc(73.33% - 12px);
+      }
+    }
   </style>
 
 
@@ -2698,20 +2735,21 @@ toggler.addEventListener("click", function () {
         right: 10px;
       }
     }
-@media (max-width: 767px) {
 
-  .video-wrapper {
-    justify-content: center;
-  }
+    @media (max-width: 767px) {
 
-  .video-card {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
+      .video-wrapper {
+        justify-content: center;
+      }
+
+      .video-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
   </style>
   <section class="yt-testi">
-    <div class="carousel-container my-5 py-4">
+    <div class="carousel-container" style="margin: 0px 30px 30px 30px;">
       <div class="text-center mb-5 reveal">
         <span class="sec-tag" style="background:rgba(246,240,159,.15);color:var(--yellow);">Student Stories</span>
         <h2 class="sec-title" style="color:#ffffff;">Hear From Our <span>Alumni</span></h2>
@@ -2787,32 +2825,32 @@ toggler.addEventListener("click", function () {
     carouselElement.addEventListener('mouseleave', () => carousel.cycle());
   </script>
   <script>
-function setupMobileCarousel() {
-  const isMobile = window.innerWidth <= 767;
-  const carouselInner = document.querySelector("#youtubeCarousel .carousel-inner");
-  const videoCards = document.querySelectorAll(".video-card");
+    function setupMobileCarousel() {
+      const isMobile = window.innerWidth <= 767;
+      const carouselInner = document.querySelector("#youtubeCarousel .carousel-inner");
+      const videoCards = document.querySelectorAll(".video-card");
 
-  if (isMobile && carouselInner.children.length === 1) {
-    carouselInner.innerHTML = "";
+      if (isMobile && carouselInner.children.length === 1) {
+        carouselInner.innerHTML = "";
 
-    videoCards.forEach((card, index) => {
-      const item = document.createElement("div");
-      item.classList.add("carousel-item");
-      if (index === 0) item.classList.add("active");
+        videoCards.forEach((card, index) => {
+          const item = document.createElement("div");
+          item.classList.add("carousel-item");
+          if (index === 0) item.classList.add("active");
 
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("video-wrapper");
+          const wrapper = document.createElement("div");
+          wrapper.classList.add("video-wrapper");
 
-      wrapper.appendChild(card.cloneNode(true));
-      item.appendChild(wrapper);
-      carouselInner.appendChild(item);
-    });
-  }
-}
+          wrapper.appendChild(card.cloneNode(true));
+          item.appendChild(wrapper);
+          carouselInner.appendChild(item);
+        });
+      }
+    }
 
-window.addEventListener("load", setupMobileCarousel);
-window.addEventListener("resize", setupMobileCarousel);
-</script>
+    window.addEventListener("load", setupMobileCarousel);
+    window.addEventListener("resize", setupMobileCarousel);
+  </script>
 
 
 
@@ -3036,61 +3074,148 @@ window.addEventListener("resize", setupMobileCarousel);
     </div>
   </section>
 
-  <!-- ─── FOOTER ─── -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row gy-4 mb-4">
-        <div class="col-lg-6">
-          <a class="footer-logo" href="#">
-            <img src="Media/SVYASA -Logo.png" alt="SVYASA Logo">
-          </a>
-          <style>
+  <!-- ───────── FOOTER (MODERN) ───────── -->
+  <footer class="footer-modern">
 
-          </style>
-          <!-- <div class="social-links mt-3 d-flex gap-2">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-youtube"></i></a>
-          </div> -->
+    <style>
+      .footer-modern {
+        background: #ecf5f6;
+        padding: 30px 0 20px;
+        color: #000;
+
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      /* LOGO */
+      .footer-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .footer-logo img {
+        width: 100%;
+        max-width: 100%;
+        transition: 0.4s ease;
+      }
+
+      .footer-logo img:hover {
+        transform: scale(1.05);
+      }
+
+      /* CONTACT */
+      .footer-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #000000;
+      }
+
+      .footer-contact div {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-contact i {
+        color: #0aa;
+        font-size: 16px;
+        margin-top: 3px;
+      }
+
+      /* DIVIDER */
+      .footer-divider {
+        margin: 40px 0 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      /* BOTTOM */
+      .footer-bottom {
+        text-align: center;
+        font-size: 0.85rem;
+        color: #555;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 40px;
+        }
+
+        .footer-contact div {
+          justify-content: center;
+        }
+
+        .footer-logo img {
+          width: 260px;
+        }
+      }
+    </style>
+
+    <div class="footer-container">
+
+      <div class="footer-grid">
+
+        <!-- LOGO -->
+        <div class="footer-logo">
+          <img src="Media/SVYASA -Logo.png" alt="SVYASA Logo">
         </div>
 
-        <div class="col-lg-6">
-          <div style="color:#000;font-weight:600;font-size:1.3rem;margin-bottom:1rem;">
-            Contact
-          </div>
+        <!-- CONTACT -->
+        <div>
+          <div class="footer-title">Contact</div>
 
-          <div class="d-flex flex-column gap-3" style="font-size:1.1rem;">
+          <div class="footer-contact">
 
-            <!-- ADDRESS -->
-            <div class="d-flex align-items-start">
-              <i class="bi bi-geo-alt me-2 mt-1" style="color:var(--teal);"></i>
+            <div>
+              <i class="bi bi-geo-alt"></i>
               <span>
-                Sattva Global City, Mysore Road,
+                Sattva Global City, Mysore Road,<br>
                 Rajarajeshwari Nagar,
-                Bengaluru, Karnataka - 560059, India
+                Bengaluru <br>- 560059, India
               </span>
             </div>
 
-            <!-- PHONE -->
-            <div class="d-flex align-items-start">
-              <i class="bi bi-telephone me-2 mt-1" style="color:var(--teal);"></i>
-              <span>
-                +91-9070907066 | +91-9070907099
-              </span>
+            <div>
+              <i class="bi bi-telephone"></i>
+              <span>+91-9070907066 | +91-9070907099</span>
             </div>
 
-            <!-- EMAIL -->
-            <div class="d-flex align-items-start">
-              <i class="bi bi-envelope me-2 mt-1" style="color:var(--teal);"></i>
-              <span>
-                info@svyasa.edu.in
-              </span>
+            <div>
+              <i class="bi bi-envelope"></i>
+              <span>info@svyasa.edu.in</span>
             </div>
 
           </div>
         </div>
+
       </div>
+
+      <div class="footer-divider"></div>
+
+
     </div>
   </footer>
 
