@@ -46,6 +46,10 @@
     }
 
     section {
+      padding: 4rem 0;
+    }
+
+    section {
       scroll-margin-top: 100px;
       /* adjust based on your navbar height */
     }
@@ -123,9 +127,9 @@
     }
 
     .navbar-nav .nav-link {
-      color: rgba(0, 0, 0, 0.8) !important;
-      font-weight: 900;
-      font-size: .88rem;
+      color: rgb(0, 0, 0) !important;
+      font-weight: 500;
+      font-size: .91rem;
       letter-spacing: .5px;
       text-transform: uppercase;
       padding: .8rem 1.1rem !important;
@@ -139,7 +143,7 @@
       bottom: 0;
       left: .9rem;
       right: .9rem;
-      height: 2px;
+      height: 1px;
       background: var(--yellow);
       transform: scaleX(0);
       transition: transform .25s ease;
@@ -244,10 +248,16 @@
     }
 
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.215) 0%, rgba(0, 0, 0, 0.802) 100%);
-    }
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 20, 40, 0.6) 0%,
+    rgba(10, 20, 40, 0.6) 40%,
+    rgba(10, 20, 40, 0.6) 100%
+  );
+  backdrop-filter: blur(0.6px);
+}
 
     .hero-grain {
       position: absolute;
@@ -486,9 +496,7 @@
     }
 
     /* ─── SECTION COMMONS ─── */
-    section {
-      padding: 3rem 0;
-    }
+
 
     .sec-tag {
       display: inline-block;
@@ -770,7 +778,7 @@
 
     /* ─── PLACEMENT SECTION ─── */
     #placement {
-      background: linear-gradient(135deg, #4f6966 0%, #f8fcfc 100%);
+      background: linear-gradient(135deg, #6e9f99 0%, #f8fcfc 100%);
       overflow: hidden;
       position: relative;
     }
@@ -865,7 +873,7 @@
     /* desc */
     .step-desc {
       font-size: 0.9rem;
-      color: #666;
+      color: #000000;
       line-height: 1.6;
     }
 
@@ -1644,25 +1652,28 @@
 
       <span>Admissions Open 2026–2027</span>
       <span>*</span>
-      <span>Apply Now</span>
+      <span>Build Real-World Applications</span>
       <span>*</span>
-      <span>Limited Seats Available</span>
+      <span>Organize & Scale Data</span>
       <span>*</span>
-      <span>Scholarships Available</span>
+      <span>Protect Digital Systems</span>
       <span>*</span>
-      <span>Industry-Focused Curriculum</span>
+      <span>Create What’s Next</span>
       <span>*</span>
+
 
       <!-- duplicate for loop -->
       <span>Admissions Open 2026–2027</span>
       <span>*</span>
-      <span>Apply Now</span>
+      <span>Build Real-World Applications</span>
       <span>*</span>
-      <span>Limited Seats Available</span>
+      <span>Create What’s Next</span>
       <span>*</span>
-      <span>Scholarships Available</span>
+      <span>Organize & Scale Data</span>
       <span>*</span>
-      <span>Industry-Focused Curriculum</span>
+      <span>Protect Digital Systems</span>
+      <span>*</span>
+
 
     </div>
   </div>
@@ -1674,7 +1685,7 @@
       overflow: hidden;
       background: var(--mint);
       /* change if needed */
-      color: #161616;
+      color: #000000;
       white-space: nowrap;
 
     }
@@ -1690,12 +1701,12 @@
       gap: 40px;
       padding: 12px 0;
 
-      animation: scroll 20s linear infinite;
+      animation: scroll 30s linear infinite;
     }
 
     .ticker span {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -1910,8 +1921,8 @@
   <section id="courses">
     <div class="container">
       <div class="text-center mb-5 reveal">
-        <span class="sec-tag">Our Programs</span>
-        <h2 class="sec-title"> <span>Course</span> Offered</h2>
+        <span class="sec-tag">Our Programmes</span>
+        <h2 class="sec-title"> <span>Courses</span> Offered</h2>
         <div class="divider mx-auto"></div>
         <p class="sec-sub mx-auto">S-VYASA Deemed to be University Sattva Global City Campus offers in-depth BCA
           programmes that inculcates students with the requisite knowledge to be future pioneers in the fast-paced
@@ -1928,10 +1939,10 @@
             </div>
             <div class="course-card-body">
               <div class="course-title">BCA Cybersecurity, Ethical Hacking & Digital Forensics</div>
-              <p class="course-desc">This three-year undergraduate program is designed to build a strong foundation in
+              <p class="course-desc">This three-year undergraduate programme is designed to build a strong foundation in
                 computer applications while specialising in cybersecurity and digital investigation.Students gain
                 hands-on exposure to ethical hacking techniques, network security, cryptography, cyber laws, and digital
-                forensics, enabling them to analyse cyber incidents and secure information systems. The program blends
+                forensics, enabling them to analyse cyber incidents and secure information systems. The programme blends
                 theoretical knowledge with practical training through labs, simulations, and real-world case studies.
               </p>
               <div class="course-duration"><i class="bi bi-clock-fill"></i> 3 Years</div>
@@ -1995,7 +2006,7 @@
             <span class="step-num">02</span>
             <div class="step-icon-wrap"><i class="bi bi-mortarboard"></i></div>
             <h5 class="step-title">Soft Skills and Resume-Building Sessions</h5>
-            <p class="step-desc">The BCA program includes dedicated training sessions focused on communication,
+            <p class="step-desc">The BCA programme includes dedicated training sessions focused on communication,
               teamwork, and professional development, helping students build strong resumes and prepare for interviews.
             </p>
           </div>
@@ -2220,8 +2231,8 @@
 
     /* Logo Circle */
     .logo-circle {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       background: #ffffff;
       border-radius: 50%;
       display: flex;
@@ -2234,7 +2245,7 @@
     }
 
     .logo-circle:hover {
-      transform: translateY(-8px) scale(1.03);
+      transform: translateY(-4px) scale(1.03);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
       border-color: #e0e0e0;
       z-index: 10;
@@ -2242,7 +2253,7 @@
 
     .logo-circle img {
       max-width: 100%;
-      max-height: 60px;
+      max-height: 70%;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -2400,7 +2411,7 @@
 
   <section class="recruiters-section">
     <div class="text-center mb-5 reveal">
-      <span class="sec-tag" style="background:rgba(246,240,159,.2);color:var(--yellow);">Placement Process</span>
+      <span class="sec-tag" style="background:rgba(246,240,159,.2);color:var(--yellow);">Recruiters</span>
       <h2 class="sec-title" style="color:#000000;">Top <span>Recruiters</span></h2>
       <div class="divider mx-auto"></div>
       <!-- <p class="sec-sub mx-auto" style="color:rgba(0, 0, 0, 0.55);">Our proven placement methodology that has helped
@@ -2412,33 +2423,27 @@
       <!-- Row 1: 5 logos -->
       <div class="logo-row">
         <div class="logo-circle">
-          <img src="placements/AIROH.svg" alt="Google">
+          <img src="placements/Amazon.svg" alt="Google">
         </div>
         <div class="logo-circle">
-          <img src="placements/Coca-Cola.svg" alt="Microsoft">
+          <img src="placements/BOAT.svg" alt="Microsoft">
         </div>
         <div class="logo-circle">
-          <img src="placements/OLA.svg" alt="Amazon">
+          <img src="placements/Flipkart.svg" alt="Amazon">
         </div>
         <div class="logo-circle">
-          <img src="placements/Oracle.svg" alt="Google">
+          <img src="placements/Google.svg" alt="Google">
         </div>
         <div class="logo-circle">
-          <img src="placements/OYO.svg" alt="Microsoft">
+          <img src="placements/HP.svg" alt="Microsoft">
         </div>
         <div class="logo-circle">
-          <img src="placements/Paytm.svg" alt="Amazon">
+          <img src="placements/Intel.svg" alt="Amazon">
         </div>
 
-        <div class="logo-circle">
-          <img src="placements/RapidOps.svg" alt="Amazon">
-        </div>
-        <div class="logo-circle">
-          <img src="placements/RBL Bank.svg" alt="Amazon">
-        </div>
-        <div class="logo-circle">
-          <img src="placements/Standard Chartered.svg" alt="Amazon">
-        </div>
+       
+        
+       
 
 
       </div>
@@ -2446,57 +2451,23 @@
       <!-- Row 2: 4 logos -->
       <div class="logo-row">
         <div class="logo-circle">
-          <img src="placements/Peoples Group.svg" alt="Microsoft">
+          <img src="placements/Oracle.svg" alt="Microsoft">
         </div>
         <div class="logo-circle">
-          <img src="placements/Pernod Ricard.svg" alt="Amazon">
+          <img src="placements/Phonepe.svg" alt="Amazon">
         </div>
         <div class="logo-circle">
-          <img src="placements/Zomato.svg" alt="Google">
+          <img src="placements/Reliance Industries Ltd.svg" alt="Amazon">
         </div>
         <div class="logo-circle">
-          <img src="placements/PhonePe.svg" alt="Microsoft">
+          <img src="placements/Samsung.svg" alt="Microsoft">
         </div>
         <div class="logo-circle">
-          <img src="placements/Progress.svg" alt="Amazon">
+          <img src="placements/Uber.svg" alt="Amazon">
         </div>
-        <div class="logo-circle">
-          <img src="placements/Proof.svg" alt="Amazon">
+         <div class="logo-circle">
+          <img src="placements/Microsoft.svg" alt="Amazon">
         </div>
-
-        <div class="logo-circle">
-          <img src="placements/Swiggy.svg" alt="Amazon">
-        </div>
-        <div class="logo-circle">
-          <img src="placements/Western Digital.svg" alt="Amazon">
-        </div>
-      </div>
-
-      <!-- Row 3: 3 logos -->
-      <!-- <div class="logo-row">
-                <div class="logo-circle">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel">
-                </div>
-               
-            </div> -->
-
-      <!-- Row 4: 2 logos (you can add more companies) -->
-      <!-- <div class="logo-row">
-                <div class="logo-circle">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
-                </div>
-                <div class="logo-circle">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Adobe">
-                </div>
-            </div> -->
-
-      <!-- Row 5: 1 logo -->
-      <!-- <div class="logo-row">
-                <div class="logo-circle">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Apple">
-                </div>
-            </div> -->
-
     </div>
   </section>
 
@@ -2569,7 +2540,8 @@
           <div class="why-card">
             <div class="why-icon"><i class="bi bi-wallet2"></i></div>
             <h5 class="why-title">Globally Recognised Certifications</h5>
-            <p class="why-desc">The BCA program is integrated with certifications in collaboration with various leading
+            <p class="why-desc">The BCA programme is integrated with certifications in collaboration with various
+              leading
               companies to enhance the employability rate of the students.</p>
           </div>
         </div>
@@ -2749,7 +2721,8 @@
       <div class="text-center mb-5 reveal">
         <span class="sec-tag" style="background:rgba(246,240,159,.15);color:var(--yellow);">Student Stories</span>
         <h2 class="sec-title" style="color:#ffffff;">Student <span>Testimonials</span></h2>
-        <p style="color:#ffffff;">Listen to the stories of tomorrow’s leaders currently pursuing their academic journey at S-VYASA Deemed to be<br>
+        <p style="color:#ffffff;">Listen to the stories of tomorrow’s leaders currently pursuing their academic journey
+          at S-VYASA Deemed to be<br>
           University, Sattva Global City Campus, Bangalore - one of the best BCA colleges.</p>
         <div class="divider mx-auto"></div>
       </div>
