@@ -237,27 +237,25 @@
 
     /* ─── HERO ─── */
     #hero {
-      min-height: 91vh;
+      min-height: 97vh;
       position: relative;
       display: flex;
       align-items: center;
       background: url('Media/DJI_20250312164412_0229_D_1.jpg.webp') center/cover no-repeat;
       overflow: hidden;
       margin: 10px 10px 0px 10px;
-      border-radius: 30px 30px 0 0;
+      border-radius: 30px 30px 30px 30px;
     }
 
     .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 20, 40, 0.6) 0%,
-    rgba(10, 20, 40, 0.6) 40%,
-    rgba(10, 20, 40, 0.6) 100%
-  );
-  backdrop-filter: blur(0.6px);
-}
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(10, 20, 40, 0.6) 0%,
+          rgba(10, 20, 40, 0.6) 40%,
+          rgba(10, 20, 40, 0.6) 100%);
+      backdrop-filter: blur(0.6px);
+    }
 
     .hero-grain {
       position: absolute;
@@ -688,7 +686,7 @@
     }
 
     .course-card-img {
-      height: 250px;
+      height: 220px;
       overflow: hidden;
       position: relative;
     }
@@ -702,6 +700,16 @@
 
     .course-card:hover .course-card-img img {
       transform: scale(1.08);
+    }
+
+    .fees-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #002e57;
+      margin-top: 0.1rem;
+      margin-bottom: 0.4rem;
     }
 
     .course-cat {
@@ -753,6 +761,44 @@
       padding: .35rem .85rem;
       background: rgba(135, 182, 188, .12);
       border-radius: 50px;
+    }
+
+    .course-fees {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .fee-item {
+      background: #f7f9fb;
+      padding: .6rem .5rem;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all .25s ease;
+    }
+
+    .fee-item span {
+      display: block;
+      font-size: .7rem;
+      color: #888;
+      margin-bottom: 2px;
+    }
+
+    .fee-item strong {
+      font-size: .9rem;
+      color: var(--dark);
+    }
+
+    .fee-item:hover {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .fee-item:hover span,
+    .fee-item:hover strong {
+      color: #fff;
     }
 
     .btn-apply {
@@ -841,7 +887,7 @@
     .step-icon-wrap {
       width: 64px;
       height: 64px;
-      background: linear-gradient(135deg, rgb(66, 107, 107), #5eead4);
+      background: linear-gradient(135deg, #ef5f32, #6c3a3a);
       color: #fff;
       border-radius: 16px;
 
@@ -867,7 +913,7 @@
       font-size: 1.2rem;
       font-weight: 600;
       color: #111;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
     }
 
     /* desc */
@@ -875,100 +921,6 @@
       font-size: 0.9rem;
       color: #000000;
       line-height: 1.6;
-    }
-
-    /* ─── RECRUITERS ─── */
-    #recruiters {
-      background: #fff;
-    }
-
-    .recruiter-carousel .carousel-item {
-      padding: 1rem;
-    }
-
-    .recruiter-card {
-      background: var(--light);
-      border-radius: 20px;
-      padding: 2rem;
-      text-align: center;
-      margin: 0 .5rem;
-    }
-
-    .recruiter-logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 16px;
-      background: var(--mint);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-family: var(--font-heading);
-      font-size: 1.6rem;
-      color: var(--dark);
-    }
-
-    .recruiter-name {
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: .3rem;
-    }
-
-    .recruiter-role {
-      font-size: .8rem;
-      color: #888;
-    }
-
-    .recruiter-pkg {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      color: var(--red);
-      margin-top: .5rem;
-    }
-
-    .recruiter-pkg span {
-      font-size: .8rem;
-      font-family: var(--font-body);
-      color: #888;
-      font-weight: 400;
-    }
-
-    .recruiter-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .recruiter-pill {
-      background: var(--light);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      font-weight: 600;
-      font-size: .9rem;
-      transition: all .25s;
-    }
-
-    .recruiter-pill:hover {
-      background: var(--mint);
-      transform: translateY(-3px);
-    }
-
-    .recruiter-pill-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: var(--teal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: .8rem;
-      color: #fff;
     }
 
     /* ─── NOTE SECTION ─── */
@@ -1647,7 +1599,7 @@
 
   </section>
 
-  <div class="ticker">
+  <!-- <div class="ticker">
     <div class="ticker-track">
 
       <span>Admissions Open 2026–2027</span>
@@ -1662,7 +1614,7 @@
       <span>*</span>
 
 
-      <!-- duplicate for loop -->
+     
       <span>Admissions Open 2026–2027</span>
       <span>*</span>
       <span>Build Real-World Applications</span>
@@ -1684,7 +1636,7 @@
       border-bottom-left-radius: 30px;
       overflow: hidden;
       background: var(--mint);
-      /* change if needed */
+ 
       color: #000000;
       white-space: nowrap;
 
@@ -1720,7 +1672,7 @@
         transform: translateX(-50%);
       }
     }
-  </style>
+  </style> -->
 
 
 
@@ -1878,7 +1830,8 @@
         <div class="col-lg-5 reveal-left">
           <div class="col-12 reveal" id="contact">
             <div class="contact-form-wrap">
-              <h4 class="text-dark mb-4" style="font-family:var(--font-display);font-weight:700;">Enter Your Details to
+              <h4 class="text-dark text-center mb-4" style="font-family:var(--font-display);font-weight:700;">Enter Your
+                Details to
                 Get Started
               </h4>
               <div class="row g-3">
@@ -1935,7 +1888,7 @@
           <div class="course-card d-flex flex-column">
             <div class="course-card-img">
               <img src="Media/83380.jpg.jpeg" alt="CS" />
-              <span class="course-cat">Technology</span>
+              <span class="course-cat">3 Years</span>
             </div>
             <div class="course-card-body">
               <div class="course-title">BCA Cybersecurity, Ethical Hacking & Digital Forensics</div>
@@ -1945,7 +1898,24 @@
                 forensics, enabling them to analyse cyber incidents and secure information systems. The programme blends
                 theoretical knowledge with practical training through labs, simulations, and real-world case studies.
               </p>
-              <div class="course-duration"><i class="bi bi-clock-fill"></i> 3 Years</div>
+              <!-- FEES SECTION -->
+              <div class="fees-label">Fee Structure -</div>
+              <div class="course-fees">
+                <div class="fee-item">
+                  <span>1st Year</span>
+                  <strong>₹2,00,000</strong>
+                </div>
+                <div class="fee-item">
+                  <span>2nd Year</span>
+                  <strong>₹2,00,000</strong>
+                </div>
+                <div class="fee-item">
+                  <span>3rd Year</span>
+                  <strong>₹2,00,000</strong>
+                </div>
+              </div>
+
+
               <a href="#contact" class="btn-apply">Apply Now →</a>
             </div>
           </div>
@@ -1955,7 +1925,7 @@
           <div class="course-card d-flex flex-column">
             <div class="course-card-img">
               <img src="Media/693396.jpg.jpeg" alt="Data Science" />
-              <span class="course-cat">Technology</span>
+              <span class="course-cat">3 Years</span>
             </div>
             <div class="course-card-body">
               <div class="course-title">BCA Artificial Intelligence, Cloud Computing & DevOps</div>
@@ -1964,7 +1934,24 @@
                 in Artificial Intelligence, Cloud Computing, and DevOps. It equips students with skills in machine
                 learning, cloud platforms, automation, and continuous integration and deployment (CI/CD), enabling them
                 to build, manage, and scale modern applications.</p>
-              <div class="course-duration"><i class="bi bi-clock-fill"></i> 3 Years</div>
+              <!-- FEES SECTION -->
+              <div class="fees-label">Fee Structure -</div>
+              <div class="course-fees">
+                <div class="fee-item">
+                  <span>1st Year</span>
+                  <strong>₹2,00,000</strong>
+                </div>
+                <div class="fee-item">
+                  <span>2nd Year</span>
+                  <strong>₹2,00,000</strong>
+                </div>
+                <div class="fee-item">
+                  <span>3rd Year</span>
+                  <strong>₹2,00,000</strong>
+                </div>
+              </div>
+
+
               <a href="#contact" class="btn-apply">Apply Now →</a>
             </div>
           </div>
@@ -2037,128 +2024,6 @@
       </div>
     </div>
   </section>
-
-
-  <!-- <section id="recruiters">
-    <div class="container">
-      <div class="text-center mb-5 reveal">
-        <span class="sec-tag">Hiring Partners</span>
-        <h2 class="sec-title">Top <span>Recruiters</span></h2>
-        <div class="divider mx-auto"></div>
-        <p class="sec-sub mx-auto">Our alumni work at the world's most innovative companies.</p>
-      </div>
-     
-      <div id="recruiterCarousel" class="carousel slide mb-5 reveal" data-bs-ride="carousel" data-bs-interval="3000">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row g-3 px-2">
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(246,240,159,.3);color:var(--dark);">G</div>
-                  <div class="recruiter-name">Google</div>
-                  <div class="recruiter-role">Software Engineer</div>
-                  <div class="recruiter-pkg">₹42L <span>/yr</span></div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(135,182,188,.3);color:var(--dark);">M</div>
-                  <div class="recruiter-name">Microsoft</div>
-                  <div class="recruiter-role">Product Manager</div>
-                  <div class="recruiter-pkg">₹38L <span>/yr</span></div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(179,86,86,.15);color:var(--red);">A</div>
-                  <div class="recruiter-name">Amazon</div>
-                  <div class="recruiter-role">Data Scientist</div>
-                  <div class="recruiter-pkg">₹35L <span>/yr</span></div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(190,212,203,.4);color:#5a9e7f;">F</div>
-                  <div class="recruiter-name">Meta</div>
-                  <div class="recruiter-role">ML Engineer</div>
-                  <div class="recruiter-pkg">₹45L <span>/yr</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-3 px-2">
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(246,240,159,.3);">I</div>
-                  <div class="recruiter-name">Infosys</div>
-                  <div class="recruiter-role">Tech Lead</div>
-                  <div class="recruiter-pkg">₹22L <span>/yr</span></div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(135,182,188,.3);">W</div>
-                  <div class="recruiter-name">Wipro</div>
-                  <div class="recruiter-role">Analyst</div>
-                  <div class="recruiter-pkg">₹18L <span>/yr</span></div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(179,86,86,.15);color:var(--red);">T</div>
-                  <div class="recruiter-name">TCS</div>
-                  <div class="recruiter-role">Dev Engineer</div>
-                  <div class="recruiter-pkg">₹16L <span>/yr</span></div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="recruiter-card">
-                  <div class="recruiter-logo" style="background:rgba(190,212,203,.4);">S</div>
-                  <div class="recruiter-name">Swiggy</div>
-                  <div class="recruiter-role">Backend Eng</div>
-                  <div class="recruiter-pkg">₹28L <span>/yr</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#recruiterCarousel" data-bs-slide="prev">
-          <i class="bi bi-chevron-left" style="color:var(--dark);font-size:1.2rem;"></i>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#recruiterCarousel" data-bs-slide="next">
-          <i class="bi bi-chevron-right" style="color:var(--dark);font-size:1.2rem;"></i>
-        </button>
-      </div>
-  
-      <div class="recruiter-grid reveal">
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo">G</div>Google
-        </div>
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo" style="background:var(--red);">A</div>Amazon
-        </div>
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo" style="background:#4a6fa5;">M</div>Microsoft
-        </div>
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo" style="background:#2d8a4e;">F</div>Flipkart
-        </div>
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo" style="background:#c17020;">Z</div>Zomato
-        </div>
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo" style="background:#7a4aab;">P</div>Paytm
-        </div>
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo" style="background:#1a7a6e;">S</div>Swiggy
-        </div>
-        <div class="recruiter-pill">
-          <div class="recruiter-pill-logo" style="background:#b35656;">O</div>ONGC
-        </div>
-      </div>
-    </div>
-  </section> -->
 
 
   <style>
@@ -2441,9 +2306,9 @@
           <img src="placements/Intel.svg" alt="Amazon">
         </div>
 
-       
-        
-       
+
+
+
 
 
       </div>
@@ -2465,10 +2330,10 @@
         <div class="logo-circle">
           <img src="placements/Uber.svg" alt="Amazon">
         </div>
-         <div class="logo-circle">
+        <div class="logo-circle">
           <img src="placements/Microsoft.svg" alt="Amazon">
         </div>
-    </div>
+      </div>
   </section>
 
 
@@ -2761,21 +2626,7 @@
           </div>
         </div>
 
-        <!-- Navigation buttons -->
-        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#youtubeCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#youtubeCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button> -->
-
-        <!-- Dots -->
-        <!-- <div class="carousel-indicators">
-                <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="0" class="active"></button>
-               
-            </div> -->
+      
       </div>
     </div>
   </section>
@@ -2830,14 +2681,15 @@
   <section id="faq">
     <div class="container">
       <div class="row align-items-start gy-5">
-        <div class="col-lg-5 reveal-left">
+        <div class="col-lg-6 reveal-left">
           <div class="faq-img-side">
-            <img src="faq/FAQ-05.webp" alt="FAQ" />
+            <h2 class="sec-title" style="font-size: 6rem;">Frequently  Asked <span>Questions</span></h2>
+             <!-- <h2 class="sec-title" style="font-size: 6rem;"> We have <br>the <span>Answers</span></h2> -->
           </div>
         </div>
-        <div class="col-lg-7 reveal-right">
+        <div class="col-lg-6 reveal-right">
           <span class="sec-tag">FAQs</span>
-          <h2 class="sec-title">Got <span>Questions?</span></h2>
+         
           <div class="divider"></div>
           <div class="faq-wrap accordion" id="faqAccordion">
             <div class="accordion-item">
@@ -2927,109 +2779,6 @@
   </section>
 
 
-
-
-
-
-
-
-  <!-- ─── YOUTUBE CAROUSEL ─── -->
-  <!-- <section id="videos" style="padding:6rem 0;">
-    <div class="container">
-      <div class="text-center mb-5 reveal">
-        <span class="sec-tag" style="background:rgba(246,240,159,.15);color:var(--yellow);">Student Stories</span>
-        <h2 class="sec-title" style="color:#fff;">Hear From Our <span>Alumni</span></h2>
-        <div class="divider mx-auto"></div>
-      </div>
-      <div id="ytCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-        <div class="carousel-inner reveal">
-          <div class="carousel-item active">
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="yt-card">
-                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
-                    alt="Video 1" />
-                  <div class="yt-overlay">
-                    <div class="yt-title">How I Got Into Google — My EduCraft Journey</div>
-                  </div>
-                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
-                  <div class="yt-duration">12:34</div>
-                </div>
-              </div>
-              <div class="col-md-4 d-none d-md-block">
-                <div class="yt-card">
-                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"
-                    alt="Video 2" />
-                  <div class="yt-overlay">
-                    <div class="yt-title">₹45 LPA at 22 — My Data Science Story</div>
-                  </div>
-                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
-                  <div class="yt-duration">08:21</div>
-                </div>
-              </div>
-              <div class="col-md-4 d-none d-md-block">
-                <div class="yt-card">
-                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80"
-                    alt="Video 3" />
-                  <div class="yt-overlay">
-                    <div class="yt-title">From Tier 3 to Silicon Valley — Full Story</div>
-                  </div>
-                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
-                  <div class="yt-duration">15:07</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="yt-card">
-                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80"
-                    alt="Video 4" />
-                  <div class="yt-overlay">
-                    <div class="yt-title">Campus Life at EduCraft — A Day in My Life</div>
-                  </div>
-                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
-                  <div class="yt-duration">10:45</div>
-                </div>
-              </div>
-              <div class="col-md-4 d-none d-md-block">
-                <div class="yt-card">
-                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
-                    alt="Video 5" />
-                  <div class="yt-overlay">
-                    <div class="yt-title">Top 5 Mistakes I Made During Placements</div>
-                  </div>
-                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
-                  <div class="yt-duration">07:58</div>
-                </div>
-              </div>
-              <div class="col-md-4 d-none d-md-block">
-                <div class="yt-card">
-                  <img class="yt-thumb" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
-                    alt="Video 6" />
-                  <div class="yt-overlay">
-                    <div class="yt-title">How EduCraft Helped Me Switch Careers</div>
-                  </div>
-                  <div class="yt-play"><i class="bi bi-play-fill"></i></div>
-                  <div class="yt-duration">09:12</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#ytCarousel" data-bs-slide="prev"
-          style="left:-60px;">
-          <i class="bi bi-chevron-left" style="color:#fff;font-size:1.2rem;"></i>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#ytCarousel" data-bs-slide="next"
-          style="right:-60px;">
-          <i class="bi bi-chevron-right" style="color:#fff;font-size:1.2rem;"></i>
-        </button>
-      </div>
-    </div>
-  </section> -->
-
   <!-- ─── CTA ─── -->
   <section id="cta">
     <div class="cta-overlay"></div>
@@ -3056,7 +2805,7 @@
       }
 
       .footer-wrap {
-        max-width: 1200px;
+        max-width: 1300px;
         margin: auto;
         padding: 0 20px;
 
